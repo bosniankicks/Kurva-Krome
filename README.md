@@ -31,6 +31,8 @@ PLEASE EDIT THE CHROME BINARY LOCATION THAT FITS TO YOUR BROWSER (line 283 in br
 
 PLEASE Leave a star! I greatly appreciate the recognition
 
+if you want to donate to the cause -- venmo(bosniankicks) - cashapp($bosniankicks) -- helps me buy my redbulls needed for these projects xD
+
 
 Dm me on discord @pickumaternu or join https://discord.gg/pCDsrSXQa9 for help :D
 
