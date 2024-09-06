@@ -1,5 +1,3 @@
-# Kurva-Krome
-
 Hi, My name is Amel. I love automation frameworks. 
 
 How does KURVA-KROME work? 
@@ -10,6 +8,8 @@ KURVA-KROME works with custom CDP connections and the functionality of playwrigh
 Why did I make this? I noticed that driverless/nodriver is strictly written in Python, and I wanted to offer a way for NodeJS developers to have access to a undetected browser framework. Kurva-Krome uses playwright and selenium functionality and will be getting updates as the time goes on. 
 
 Usage is shown in script.js 
+
+
     const kurva = new Kurvaaa();
     const browser = await kurva.browser(); -- starts the browser initialization
 
