@@ -31,6 +31,8 @@ Usage is shown in scripts folder
         `document.querySelector('a[href="/bosniankicks/Kurva-Krome"]').innerText = 'amels example';` -- lets user execute raw javascript inside the browser
         );
 
+    await browser.picture('creep.png'); -- takes a screenshot of the browser window (doesnt take fullscreenshots, and must put filename of screenshot! , saves locally to where the script is ran from) 
+
     await kurva.end(); -- closes the browser and session
 
 
