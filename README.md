@@ -7,7 +7,7 @@ KURVA-KROME works with custom CDP connections and the functionality of playwrigh
 
 Why did I make this? I noticed that driverless/nodriver is strictly written in Python, and I wanted to offer a way for NodeJS developers to have access to a undetected browser framework. Kurva-Krome uses playwright and selenium functionality and will be getting updates as the time goes on. 
 
-Usage is shown in script.js 
+Usage is shown in scripts folder
 
 
     const kurva = new Kurvaaa();
@@ -22,6 +22,14 @@ Usage is shown in script.js
     click() -- clicks an xpath
 
     await inputElement.sendKeys(inputText); -- sends input text to an input xpath element
+
+    await browser.coordClick(100, 100); -- sends clicks to x,y coords
+
+    const username = await browser.grabtxt(usernameClass, 'class'); -- grabs inner text of class name
+
+    await browser.insert_js(
+        `document.querySelector('a[href="/bosniankicks/Kurva-Krome"]').innerText = 'amels example';` -- lets user execute raw javascript inside the browser
+        );
 
     await kurva.end(); -- closes the browser and session
 
