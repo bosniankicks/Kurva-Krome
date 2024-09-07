@@ -354,6 +354,25 @@ class Browser {
             });
             fs.rmdirSync(directory);
         }
+        
+
+    }
+
+    async picture(filename) {
+        console.log(`Taking screenshot and saving as ${filename}`);
+        try {
+            const result = await this._sendCommand('Page.captureScreenshot');
+            if (result.result && result.result.data) {
+                const buffer = Buffer.from(result.result.data, 'base64');
+                await fs.promises.writeFile(filename, buffer);
+                console.log(`Screenshot saved as ${filename}`);
+            } else {
+                throw new Error('Failed to capture screenshot');
+            }
+        } catch (error) {
+            console.error('Error taking screenshot:', error);
+            throw error;
+        }
     }
 
     async stop(ms) {
