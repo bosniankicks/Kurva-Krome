@@ -2,7 +2,7 @@ Hi, My name is Amel. I love automation frameworks.
 
 How does KURVA-KROME work? 
 
-KURVA-KROME works with custom CDP connections and the functionality of playwright and selenium. KK currently passes Akamai, Kasada, Cloudflare, Datadome, and PerimeterX in a headful environment. When using the BY.XPATH functionality, I have it strictly set to XPATH, this will not work with CSS selectors or IDs for the time being. 
+KURVA-KROME works with custom CDP connections and the functionality of playwright and selenium. KK currently passes Akamai, Kasada, Cloudflare, Datadome, and PerimeterX in a headful environment. 
 
 
 Why did I make this? I noticed that driverless/nodriver is strictly written in Python, and I wanted to offer a way for NodeJS developers to have access to a undetected browser framework. Kurva-Krome uses playwright and selenium functionality and will be getting updates as the time goes on. 
