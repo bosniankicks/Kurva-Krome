@@ -71,6 +71,17 @@ class WebElement {
             });
         }
     }
+
+    async grabtxt() {
+        const result = await this.browser._sendCommand('Runtime.callFunctionOn', {
+            functionDeclaration: 'function() { return this.textContent; }',
+            objectId: this.elementId
+        });
+        if (result.result && result.result.result && result.result.result.value) {
+            return result.result.result.value.trim();
+        }
+        throw new Error('Failed to retrieve textContent');
+    }
 }
 
 class Browser {
@@ -237,6 +248,82 @@ class Browser {
         };
     }
 
+    async grabtxt(selector, type = 'xpath') {
+        let script;
+        if (type === 'xpath') {
+            script = `
+                (() => {
+                    const element = document.evaluate('${selector}', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+                    if (element) {
+                        return { found: true, text: element.textContent, tag: element.tagName.toLowerCase() };
+                    }
+                    return { found: false };
+                })()
+            `;
+        } else if (type === 'class') {
+            script = `
+                (() => {
+                    const classes = '${selector}'.split(' ');
+                    const elements = document.getElementsByClassName(classes[0]);
+                    for (let element of elements) {
+                        if (classes.every(c => element.classList.contains(c))) {
+                            return { found: true, text: element.textContent, tag: element.tagName.toLowerCase() };
+                        }
+                    }
+                    return { found: false };
+                })()
+            `;
+        } else {
+            throw new Error(`Unsupported selector type: ${type}`);
+        }
+
+        const result = await this._sendCommand('Runtime.evaluate', {
+            expression: script,
+            returnByValue: true
+        });
+
+        if (result.result && result.result.result && result.result.result.value) {
+            const { found, text, tag } = result.result.result.value;
+            if (found) {
+                console.log(`Element found with ${type}: '${selector}'. Tag: ${tag}`);
+                return text.trim();
+            } else {
+                console.log(`Element with ${type}: '${selector}' not found.`);
+            }
+        } else {
+            console.log(`Unexpected result when evaluating ${type}: '${selector}'`);
+        }
+        return null;
+    }
+
+    async coordClick(x, y) {
+        await this.mouse.click(x, y);
+        console.log(`Clicked at coordinates (${x}, ${y})`);
+    }
+
+    async insert_js(script) {
+        const result = await this._sendCommand('Runtime.evaluate', {
+            expression: script,
+            returnByValue: true
+        });
+
+        if (result.result && result.result.result) {
+            if (result.result.result.type === 'undefined') {
+                console.log('JavaScript executed successfully (no return value)');
+                return undefined;
+            } else {
+                console.log('JavaScript executed successfully');
+                return result.result.result.value;
+            }
+        } else if (result.exceptionDetails) {
+            console.error('Error executing JavaScript:', result.exceptionDetails.text);
+            throw new Error(`JavaScript execution failed: ${result.exceptionDetails.text}`);
+        } else {
+            console.log('Unexpected result when executing JavaScript');
+            return null;
+        }
+    }
+
     async quit() {
         if (this.ws) {
             this.ws.close();
@@ -245,7 +332,6 @@ class Browser {
         if (this.process) {
             this.process.kill();
         }
-
 
         try {
             this._removeDirectory(this.chromeUserDataDir);
