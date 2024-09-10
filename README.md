@@ -33,6 +33,8 @@ Usage is shown in scripts folder
 
     await browser.picture('creep.png'); -- takes a screenshot of the browser window (doesnt take fullscreenshots, and must put filename of screenshot! , saves locally to where the script is ran from) 
 
+    await browser.cookies('mycookies.json'); -- saves cookies to a json file by the users request
+
     await kurva.end(); -- closes the browser and session
 
 
