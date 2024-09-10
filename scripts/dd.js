@@ -7,6 +7,7 @@ async function main() {
         await browser.get("https://www.zocdoc.com/doctor/aleksandr-kovalskiy-md-464470?LocIdent=124796&reason_visit=75&insuranceCarrier=&insurancePlan=-1&dr_specialty=153&isNewPatient=true&referrerType=HomePage");
         await browser.stop(10000); // Wait for the page to load
         await browser.picture('creep.png');
+        await browser.cookies('mycookies.json');  // add cookie demonstration
 
     } catch (e) {
         if (e instanceof BrowserConnectionError) {
