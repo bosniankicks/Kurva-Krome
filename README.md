@@ -35,6 +35,8 @@ Usage is shown in scripts folder
 
     await browser.cookies('mycookies.json'); -- saves cookies to a json file by the users request
 
+    await browser.holdclick(x,y, duration_in_ms) -- sends a hold click to a x, y coordinate and holds for the duration in ms for the click
+
     await kurva.end(); -- closes the browser and session
 
 
