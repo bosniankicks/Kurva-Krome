@@ -44,6 +44,8 @@ class Mouse {
             clickCount: 1
         });
     }
+
+    
 }
 
 class WebElement {
@@ -225,6 +227,34 @@ class Browser {
             throw error;
         }
     }
+
+    async holdclick(x, y, duration) {
+        console.log(`Holding click at (${x}, ${y}) for ${duration}ms`);
+        
+        // Mouse press
+        await this._sendCommand("Input.dispatchMouseEvent", {
+            type: "mousePressed",
+            x,
+            y,
+            button: "left",
+            clickCount: 1
+        });
+
+        // Wait for the specified duration
+        await new Promise(resolve => setTimeout(resolve, duration));
+
+        // Mouse release
+        await this._sendCommand("Input.dispatchMouseEvent", {
+            type: "mouseReleased",
+            x,
+            y,
+            button: "left",
+            clickCount: 1
+        });
+
+        console.log(`Click held for ${duration}ms and released`);
+    }
+
 
     async findElement(by, value) {
         const script = this._getFindElementScript(by, value);
