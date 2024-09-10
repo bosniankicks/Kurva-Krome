@@ -106,15 +106,7 @@ class Browser {
 
         const chromeArgs = [
             `--remote-debugging-port=${this.debugPort}`,
-            '--disable-background-networking',
-            '--disable-default-apps',
-            '--disable-extensions',
-            '--disable-sync',
-            '--disable-translate',
-            '--metrics-recording-only',
-            '--mute-audio',
             '--no-first-run',
-            '--safebrowsing-disable-auto-update',
             `--user-data-dir=${this.chromeUserDataDir}`,
             '--remote-allow-origins=*',
             `--kurvaaa-id=${this.uniqueId}`
@@ -209,6 +201,29 @@ class Browser {
             };
             this.ws.on('message', listener);
         });
+    }
+
+    async cookies(filename) {
+        if (!filename.endsWith('.json')) {
+            filename += '.json';
+        }
+
+        console.log(`Saving cookies to ${filename}`);
+
+        try {
+            const result = await this._sendCommand('Network.getAllCookies');
+            
+            if (result.result && result.result.cookies) {
+                const cookies = result.result.cookies;
+                await fs.promises.writeFile(filename, JSON.stringify(cookies, null, 2));
+                console.log(`Cookies successfully saved to ${filename}`);
+            } else {
+                throw new Error('Failed to retrieve cookies');
+            }
+        } catch (error) {
+            console.error('Error saving cookies:', error);
+            throw error;
+        }
     }
 
     async findElement(by, value) {
