@@ -56,4 +56,4 @@ I am not responsible how you use this code in any possible way. Please refrain f
 # Capsolver Sponsor
 
 
-Alterntaively you may use Capsolver. For more information and to get started, visit the official [Capsolver website](https://www.capsolver.com/).
+Alternatively you may use Capsolver. For more information and to get started, visit the official [Capsolver website](https://www.capsolver.com/).
