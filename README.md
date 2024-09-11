@@ -52,3 +52,8 @@ Dm me on discord @pickumaternu or join https://discord.gg/pCDsrSXQa9 for help :D
 
 
 I am not responsible how you use this code in any possible way. Please refrain from using it for any malicous intent! It ruins the experience for people who want a JS framework to work! 
+
+# Capsolver Sponsor
+
+
+Alterntaively you may use Capsolver. For more information and to get started, visit the official [Capsolver website](https://www.capsolver.com/).
