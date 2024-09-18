@@ -54,7 +54,7 @@ Dm me on discord @pickumaternu or join https://discord.gg/pCDsrSXQa9 for help :D
 I am not responsible how you use this code in any possible way. Please refrain from using it for any malicous intent! It ruins the experience for people who want a JS framework to work! 
 
 # Capsolver Sponsor
-<img width="960" alt="CapSolver Ads" src="https://github.com/user-attachments/assets/793acd61-2ad9-46cf-bdec-60a61be962e1">
+[![CapSolver Ads](https://github.com/user-attachments/assets/793acd61-2ad9-46cf-bdec-60a61be962e1)](https://www.capsolver.com/?utm_source=github&utm_medium=repo&utm_campaign=scraping&utm_term=Kurva-Krome)
 
+Alternatively, you may use Capsolver. For more information and to get started, visit the official [Capsolver website](https://www.capsolver.com/?utm_source=github&utm_medium=repo&utm_campaign=scraping&utm_term=Kurva-Krome).
 
-Alternatively you may use Capsolver. For more information and to get started, visit the official [Capsolver website]([https://www.capsolver.com/](https://www.capsolver.com/?utm_source=github&utm_medium=repo&utm_campaign=scraping&utm_term=Kurva-Krome)).
