@@ -41,7 +41,7 @@ Usage is shown in scripts folder
 
 
 
-PLEASE EDIT THE CHROME BINARY LOCATION THAT FITS TO YOUR BROWSER (line 283 in browser.js) (I run on MacOS)
+PLEASE EDIT THE CHROME BINARY LOCATION THAT FITS TO YOUR BROWSER (around line 433) (I run on MacOS)
 
 PLEASE Leave a star! I greatly appreciate the recognition
 
